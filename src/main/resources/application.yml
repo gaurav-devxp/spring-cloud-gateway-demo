@@ -1,0 +1,28 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: spring-cloud-api-gateway
+
+  # SECURITY CONFIGURATION
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          # The Gateway will call this URL to fetch the Public Keys (JWK)
+          # Ensure you use 127.0.0.1 if running locally to avoid localhost issues
+          issuer-uri: http://localhost:9000
+          # If your Auth Server is using a specific realm (e.g. Keycloak), append it:
+          # issuer-uri: http://127.0.0.1:9090/realms/my-realm
+
+# Custom clear configuration
+app:
+  rest-mvc-service:
+    url: http://localhost:8081
+
+logging:
+  level:
+    org.springframework.cloud.gateway: TRACE
+    org.springframework.cloud.gateway.server.webflux: TRACE
+    reactor.netty: DEBUG
