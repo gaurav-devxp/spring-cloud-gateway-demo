@@ -20,6 +20,10 @@ spring:
 app:
   rest-mvc-service:
     url: http://localhost:8081
+  webflux-service:
+    url: http://localhost:8082
+  webflux-fn-service:
+    url: http://localhost:8083
 
 logging:
   level:

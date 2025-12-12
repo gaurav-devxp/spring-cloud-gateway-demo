@@ -13,11 +13,21 @@ public class GatewayConfig {
     @Value("${app.rest-mvc-service.url}")
     private String restMvcServiceUrl;
 
+    @Value("${app.webflux-service.url}")
+    private String webfluxServiceUrl;
+
+    @Value("${app.webflux-fn-service.url}")
+    private String webfluxFnServiceUrl;
+
     @Bean
     public RouteLocator customRouteLocator(RouteLocatorBuilder builder) {
         return builder.routes()
-                .route("spring-cloud-gateway-service-demo", r -> r.path("/api/v1/**")
+                .route("spring-rest-mvc-demo", r -> r.path("/api/v1/**")
                         .uri(restMvcServiceUrl))
+                .route("spring-webflux-demo", r -> r.path("/api/v2/**")
+                        .uri(webfluxServiceUrl))
+                .route("spring-webflux-fn-demo", r -> r.path("/api/v3/**")
+                        .uri(webfluxFnServiceUrl))
                 .build();
     }
 }
