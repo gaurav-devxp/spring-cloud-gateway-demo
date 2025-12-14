@@ -24,6 +24,8 @@ app:
     url: http://localhost:8082
   webflux-fn-service:
     url: http://localhost:8083
+  auth-server-service:
+    url: http://auth-server-demo:9000
 
 logging:
   level:
