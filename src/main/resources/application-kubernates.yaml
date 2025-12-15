@@ -1,0 +1,16 @@
+spring:
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          issuer-uri: http://auth-service:9000
+
+app:
+  rest-mvc-service:
+    url: http://rest-mvc-service:8080
+  webflux-service:
+    url: http://spring-webflux-service:8080
+  webflux-fn-service:
+    url: http://spring-webflux-fn-service:8080
+  auth-server-service:
+    url: http://auth-service:9000
